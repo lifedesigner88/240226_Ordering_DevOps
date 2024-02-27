@@ -23,7 +23,7 @@ jobs:
 
     - name: Build with Gradle
       working-directory: ./240131_Ordering_Spring
-      run:
+      run: |
         chmod +x ./gradlew
         ./gradlew bootJar
 
