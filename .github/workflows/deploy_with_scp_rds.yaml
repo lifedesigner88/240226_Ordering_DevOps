@@ -24,7 +24,7 @@ jobs:
     - name: Build with Gradle
       working-directory: ./240131_Ordering_Spring
       run:
-        chmod +x ./gradlewgit 
+        chmod +x ./gradlew
         ./gradlew bootJar
 
     - name: Copy jar to ec2
