@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'temurin'ggit
+        distribution: 'temurin'
 
     - name: Build with Gradle
       working-directory: ./240131_Ordering_Spring
