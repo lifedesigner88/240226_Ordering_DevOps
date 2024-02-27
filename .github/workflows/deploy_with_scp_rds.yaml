@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Gradle
-        working-directory: ./240131_Ordering_Spring
+        working-directory: ./ordering
         run: |
           chmod +x ./gradlew
           ./gradlew bootJar
@@ -33,5 +33,5 @@ jobs:
           host: ${{ secrets.EC2_HOST1 }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "./240131_Ordering_Spring/build/libs/*.jar"
+          source: "./ordering/build/libs/*.jar"
           target: "/home/${{ secrets.EC2_USERNAME }}"
