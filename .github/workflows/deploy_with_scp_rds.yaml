@@ -19,12 +19,12 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'temurin'g
+        distribution: 'temurin'ggit
 
     - name: Build with Gradle
       working-directory: ./ordering_server
       run:
-        chmod +x ./gradlew
+        chmod +x ./gradlewgit 
         ./gradlew bootJar
 
     - name: Copy jar to ec2
