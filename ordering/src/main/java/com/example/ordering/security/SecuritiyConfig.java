@@ -38,6 +38,7 @@ public class SecuritiyConfig {
 
                 .authorizeRequests()
                     .antMatchers(
+                            "/",
                             "/member/create",
                             "/doLogin",
                             "/items",

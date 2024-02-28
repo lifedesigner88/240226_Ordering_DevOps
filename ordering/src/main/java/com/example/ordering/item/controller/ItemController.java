@@ -21,14 +21,21 @@ import java.util.List;
 public class ItemController {
 
     private final ItemService service;
+
     public ItemController(@Autowired ItemService service) {
         this.service = service;
     }
 
-//    Create
+    @GetMapping("/")
+    public String home() {
+        return "OK";
+    }
+
+
+    //    Create
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/item/create")
-    public ResponseEntity<CommonResponse> itemCreate(ItemReqDto itemReqDto)  {
+    public ResponseEntity<CommonResponse> itemCreate(ItemReqDto itemReqDto) {
         return new ResponseEntity<>(
                 new CommonResponse(
                         HttpStatus.CREATED,
@@ -39,16 +46,16 @@ public class ItemController {
         );
     }
 
-//    Read
+    //    Read
     @GetMapping("/items")
-    public List<ItemResDto> items(ItemSearchDto SerchDto, Pageable pageable){
+    public List<ItemResDto> items(ItemSearchDto SerchDto, Pageable pageable) {
         return service.SerchItems(SerchDto, pageable);
     }
 
 
     @GetMapping("/item/{id}/image")
     public ResponseEntity<Resource> getImage(@PathVariable
-                                             Long id){
+                                             Long id) {
         return ResponseEntity.ok()
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(service.getImage(id));
@@ -56,11 +63,11 @@ public class ItemController {
     }
 
 
-//    Update
+    //    Update
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/item/{id}/update")
     public ResponseEntity<CommonResponse> itemUpdate(@PathVariable Long id,
-                                                     ItemReqDto itemReqDto){
+                                                     ItemReqDto itemReqDto) {
 
         return ResponseEntity.ok()
                 .body(
@@ -73,7 +80,7 @@ public class ItemController {
 
     }
 
-//    Delete
+    //    Delete
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/item/{id}/delete")
     public ResponseEntity<CommonResponse> Delete(@PathVariable
