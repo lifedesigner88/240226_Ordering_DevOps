@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
-                .allowedOrigins("https://www.sejong88.shop/") // vue의 URL
+                .allowedOrigins("https://www.sejong88.shop") // vue의 URL
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true);
