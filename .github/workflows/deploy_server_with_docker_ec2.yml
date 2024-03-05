@@ -43,6 +43,6 @@ jobs:
             sudo docker rm -f ordering-backend || ture
             
             sudo docker run -d --name ordering-backend -p 80:8080 \
-            -e SPRING_DATASOURCE_URL=jdbc:mariadb://${{ secrets.DB_HOST }}:3306/ordering
-            -e SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }}
+            -e SPRING_DATASOURCE_URL=jdbc:mariadb://${{ secrets.DB_HOST }}:3306/ordering \
+            -e SPRING_DATASOURCE_USERNAME=${{ secrets.DB_USERNAME }} \
             -e SPRING_DATASOURCE_PASSWORD=${{ secrets.DB_PASSWORD }} lifedesigner88/ordering-backend:v2
