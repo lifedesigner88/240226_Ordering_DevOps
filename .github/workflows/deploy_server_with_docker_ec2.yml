@@ -33,7 +33,7 @@ jobs:
           # /dev/null : 명령어의 출력을 무시할때 사용
           # curl -s http응답을 받아본다.
           script: |
-            if type docker > /dev/null ; then
+            if ! type docker > /dev/null ; then
               curl -s https://get.docker.com -o get-docker.sh
               sudo sh get-docker.sh
             fi
